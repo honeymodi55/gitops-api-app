@@ -36,4 +36,12 @@ ArgoCD creates a default admin password during installation. It is stored in a K
 ```
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
 ```
-**N
+**Note: The username is admin. You should change this password immediately after logging in**
+
+5. Change the password after logging in
+```
+argocd account update-password
+```
+
+
+**NOTE: If you delete EKS cluster, ArgoCD will be deleted too. You need to perform the above manual steps again**
